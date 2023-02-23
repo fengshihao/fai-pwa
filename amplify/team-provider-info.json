@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-faipwa-dev-110910-authRole",
+      "UnauthRoleArn": "arn:aws:iam::390783868726:role/amplify-faipwa-dev-110910-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::390783868726:role/amplify-faipwa-dev-110910-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-faipwa-dev-110910-deployment",
+      "UnauthRoleName": "amplify-faipwa-dev-110910-unauthRole",
+      "StackName": "amplify-faipwa-dev-110910",
+      "StackId": "arn:aws:cloudformation:us-east-1:390783868726:stack/amplify-faipwa-dev-110910/73fed390-b327-11ed-b398-0e07992e27c5",
+      "AmplifyAppId": "de2wc4a2nmhcf"
+    }
+  }
+}
