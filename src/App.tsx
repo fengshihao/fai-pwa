@@ -54,7 +54,11 @@ const App = (authProps : WithAuthenticatorProps) => {
       const resMsg = response.choices[0].text.replace(/^.*?\n\n/, '');
       appendMsg(resMsg, false);
     } catch (err) {
-      appendMsg("对不起, 系统出错了 请稍后再试.\n 错误: " + err, false);
+      if (navigator.onLine) {
+        appendMsg("系统错误, 请稍后再试.\n错误: " + err, false);
+      } else {
+        appendMsg("网络不可用!", false);
+      }
     } finally {
       setWaitingAI(false);
     }

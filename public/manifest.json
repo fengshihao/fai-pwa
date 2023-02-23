@@ -1,7 +1,7 @@
 {
-  "short_name": "Hello OpenAI",
-  "name": "Hello OpenAI",
-  "id" : "chat-app",
+  "short_name": "FAI",
+  "name": "人工智能集合",
+  "id" : "FAI",
   "icons": [
     {
       "src": "favicon.ico",
