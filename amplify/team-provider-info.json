@@ -9,7 +9,37 @@
       "UnauthRoleName": "amplify-faipwa-dev-110910-unauthRole",
       "StackName": "amplify-faipwa-dev-110910",
       "StackId": "arn:aws:cloudformation:us-east-1:390783868726:stack/amplify-faipwa-dev-110910/73fed390-b327-11ed-b398-0e07992e27c5",
-      "AmplifyAppId": "de2wc4a2nmhcf"
+      "AmplifyAppId": "de2wc4a2nmhcf",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-faipwa-dev-110910-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-faipwa-dev-110910-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "function": {
+        "openai": {
+          "openaiApiKey": "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",
+          "deploymentBucketName": "amplify-faipwa-dev-110910-deployment",
+          "s3Key": "amplify-builds/openai-74446343756d6c417577-build.zip"
+        },
+        "faipwaCustomMessage": {
+          "REDIRECTURL": "/",
+          "EMAILSUBJECT": "",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-faipwa-dev-110910-deployment",
+          "s3Key": "amplify-builds/faipwaCustomMessage-524a3774374946764d57-build.zip"
+        }
+      },
+      "auth": {
+        "faipwa": {}
+      },
+      "api": {
+        "openai": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "de2wc4a2nmhcf",
+          "type": "manual"
+        }
+      }
     }
   }
 }

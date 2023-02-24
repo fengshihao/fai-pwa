@@ -21,8 +21,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "bstart": "react-scripts build && workbox generateSW workbox-config.js && serve build",
+    "start": "HTTPS=true  SSL_CRT_FILE=./localhost+1.pem SSL_KEY_FILE=./localhost+1-key.pem  react-scripts start",
+    "bstart": "react-scripts build && workbox generateSW workbox-config.js && serve -s build",
     "build": "react-scripts build && workbox generateSW workbox-config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
