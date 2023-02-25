@@ -12,19 +12,34 @@ exports.handler = async (event) => {
 
     const openai = new OpenAIApi(configuration);
     let body = event.body;
-    if (body instanceof String) {
+    if (body instanceof String || typeof body === "string") {
         body = JSON.parse(body);
     }
-    const response = await openai.createCompletion(body);
-    const data = JSON.stringify(response.data);
-    console.log(`event response : type ${typeof data} : ${data}`);
-    return {
-        statusCode: 200,
-    //  Uncomment below to enable CORS requests
-     headers: {
-         "Access-Control-Allow-Origin": "*",
-         "Access-Control-Allow-Headers": "*"
-     }, 
-        body: data,
-    };
+    if (body.hasOwnProperty("prompt") && body.hasOwnProperty("response_format")) {
+        const response = await openai.createImage(body);
+        const data = JSON.stringify(response.data);
+        console.log(`event response : type ${typeof data} : ${data}`);
+        return {
+            statusCode: 200,
+        //  Uncomment below to enable CORS requests
+         headers: {
+             "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Headers": "*"
+         }, 
+            body: data,
+        };
+    } else {
+        const response = await openai.createCompletion(body);
+        const data = JSON.stringify(response.data);
+        console.log(`event response : type ${typeof data} : ${data}`);
+        return {
+            statusCode: 200,
+        //  Uncomment below to enable CORS requests
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "*"
+        }, 
+            body: data,
+        };
+    }
 };
