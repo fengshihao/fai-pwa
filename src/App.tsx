@@ -11,7 +11,7 @@ import {
   MainContainer, ChatContainer, MessageType,
   Avatar, TypingIndicator, MessageModel, InfoButton,
   MessageList, Message, MessageInput,
-  ConversationHeader
+  ConversationHeader, ArrowButton
 } from '@chatscope/chat-ui-kit-react';
 
 const OPENKEY_REG = /^sk-\w{48}$/;
@@ -25,8 +25,11 @@ Amplify.configure(awsExports);
 interface AppMsg extends MessageModel {
   avatar: string;
 }
-
-const App = (authProps: WithAuthenticatorProps) => {
+interface AppPro extends WithAuthenticatorProps {
+  installHandler? : () => Promise<void> | null
+  showInstall? : boolean
+}
+const App = (appPro: AppPro) => {
   const HELP_MSG = buildHtmlMessage(`<div style="margin:0; font-size:1em">
 <h2 style="margin:0">Q&A</h2>
     <h3 style="margin:0">Q: 有哪些功能?</h3>
@@ -199,6 +202,12 @@ const App = (authProps: WithAuthenticatorProps) => {
     </Message>)
   }
 
+  function clickInstall() {
+    if (appPro.installHandler) {
+      appPro.installHandler()
+    }
+  }
+
   return (
     <div style={{ position: "relative", height: "100vh" }}>
       <MainContainer>
@@ -207,6 +216,9 @@ const App = (authProps: WithAuthenticatorProps) => {
             <Avatar src="logo512.png" name="FAI" />
             <ConversationHeader.Content userName="FAI 人工智能合集" />
             <ConversationHeader.Actions>
+              { 
+                appPro.showInstall ? <ArrowButton title="安装" direction='down' onClick={clickInstall}/> : undefined
+              }
               <InfoButton title="帮助" onClick={showHelp} />
             </ConversationHeader.Actions>
           </ConversationHeader>

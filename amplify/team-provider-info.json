@@ -17,7 +17,7 @@
       "function": {
         "openai": {
           "deploymentBucketName": "amplify-faipwa-dev-110910-deployment",
-          "s3Key": "amplify-builds/openai-4f2b536752474f4c362f-build.zip",
+          "s3Key": "amplify-builds/openai-4e6c52794e4267775170-build.zip",
           "openaiApiKey": "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"
         },
         "faipwaCustomMessage": {
